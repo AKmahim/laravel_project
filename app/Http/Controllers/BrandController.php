@@ -1,13 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Brand;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
-use app\Models\User;
-use app\Models\Products;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
+use App\Models\checkout;
+use App\Models\Cart;
+use App\Models\Category;
+use App\Models\Brand;
+use app\Models\User;
+use app\Models\Products;
+
 
 
 // use config\image;
@@ -22,8 +28,14 @@ class BrandController extends Controller
     }
     //
     public function AllBrand(){
-        $brands = Brand::latest()->paginate(5);
-        return view('admin.brand.index',compact('brands'));
+        $orders = checkout::latest()->paginate(10);
+        $carts = Cart::where('user_ip',request()->ip())->latest()->get();
+
+        $total = Cart::all()->where('user_ip',request()->ip())->sum(function($t){
+            return $t->price * $t->qty;
+        });
+
+        return view('admin.order.index',compact('orders','carts','total'));
 
     }
 
@@ -70,7 +82,7 @@ class BrandController extends Controller
     //edit function
     public function Edit($id){
         $brands = Brand::find($id);
-        return view('admin.brand.edit',compact('brands'));
+        return view('admin.order.edit',compact('brands'));
     }
 
     // update function for brand list
@@ -106,7 +118,7 @@ class BrandController extends Controller
           'created_at' => Carbon::now()
          ]);
 
-         return Redirect()->route('all.brand')->with('success','Brand Updated');
+         return Redirect()->route('all.order')->with('success','Brand Updated');
 
       }
       
@@ -128,12 +140,10 @@ class BrandController extends Controller
     //this function is for delete brand list data
     public function Delete($id){
 
-        $img = Brand::find($id);
-        $old_img = $img->brand_image;
-        unlink($old_img);
+        
 
-        Brand::find($id)->delete();
-        return Redirect()->route('all.brand')->with('success','Brand Delete Permanately');
+        checkout::find($id)->delete();
+        return Redirect()->route('all.order')->with('success','Order Delete Permanately');
         
 
     }

@@ -55,15 +55,15 @@ Route::get('pdelete/category/{id}','App\Http\Controllers\CategoryController@pdel
 
 /// Brand Page route
 
-Route::get('Brand/All','App\Http\Controllers\BrandController@AllBrand')->name('all.brand');
-Route::post('Brand/Add','App\Http\Controllers\BrandController@StoreBrand')->name('store.brand');
+Route::get('Order/All','App\Http\Controllers\BrandController@AllBrand')->name('all.order');
+// Route::post('Brand/Add','App\Http\Controllers\BrandController@StoreBrand')->name('store.brand');
 
 
 //edit brand page
 Route::get('Brand/Edit/{id}','App\Http\Controllers\BrandController@Edit');
 //update brand data
 Route::post('Update/Brand/{id}','App\Http\Controllers\BrandController@Update');
-Route::get('Delete/Brand/{id}','App\Http\Controllers\BrandController@Delete');
+Route::get('Delete/Order/{id}','App\Http\Controllers\BrandController@Delete');
 
 
 

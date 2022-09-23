@@ -169,6 +169,8 @@
 <script src="{{ asset('fontend') }}/js/mixitup.min.js"></script>
 <script src="{{ asset('fontend') }}/js/jquery.min.js"></script>
 
+@yield('js_script')
+
 <script src="{{ asset('fontend') }}/js/jquery-migrate-3.0.0.js"></script>
 <!-- Popper JS -->
 <script src="{{ asset('fontend') }}/js/popper.min.js"></script>

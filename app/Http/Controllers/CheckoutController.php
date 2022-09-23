@@ -20,6 +20,12 @@ class CheckoutController extends Controller
     }
 
     public function AddOrder(Request $request){
-        
+        checkout::insert([
+            'customer_name' => $request->customer_name,
+            'customer_address' => $request->customer_address,
+            'customer_no' => $request->customer_no,
+        ]);
+        return Redirect()->back()->with('cart','Order complete');
+
     }
 }

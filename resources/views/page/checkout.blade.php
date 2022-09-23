@@ -27,6 +27,7 @@
                         </p>
                         <!-- Form -->
                         <form method="POST" action=" {{ url('/checkout/AddOrder') }} ">
+                            @csrf 
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="form-group">
                                     <label>আপনার নাম<span>*</span></label>
@@ -42,7 +43,7 @@
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="form-group">
                                     <label>আপনার মোবাইল<span>*</span></label>
-                                    <input type="number" name="customer_no" pattern="[0-9]*" id="customerPhone" class="form-control" placeholder="আপনার মোবাইল লিখুন">
+                                    <input type="text" name="customer_no" pattern="[0-9]*" id="customerPhone" class="form-control" placeholder="আপনার মোবাইল লিখুন">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">

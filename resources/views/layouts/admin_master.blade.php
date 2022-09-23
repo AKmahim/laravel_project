@@ -76,14 +76,14 @@
                                     Category
                             </a>
 
-                            <a class="nav-link" href=" {{ route('all.brand') }} ">
+                            <a class="nav-link" href=" {{ route('all.order') }} ">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                    Brand
+                                    Order
                             </a>
-                            <a class="nav-link" href=" {{ route('multi.image') }} ">
+                            {{-- <a class="nav-link" href=" {{ route('multi.image') }} ">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Multiple Image
-                            </a>
+                            </a> --}}
                             <a class="nav-link" href=" {{ route('product.all') }} ">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Products
