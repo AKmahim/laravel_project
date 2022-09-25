@@ -19,6 +19,11 @@
 .color-plate.active{
 	right:0;
 }
+.navbar-collapse,.btn,.btnn,.check-out{
+	background-color: #f2a838 !important;
+	color: #000 !important;
+}
+
 .color-plate .color-plate-icon {
 	position: absolute;
 	left: -48px;

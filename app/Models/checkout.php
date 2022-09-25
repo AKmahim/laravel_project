@@ -11,5 +11,10 @@ class checkout extends Model
 
     protected $fillable = [
         'customer_name','customer_address','customer_no',
+        'product_name',
+        'product_img',
+        'price',
+        'qty',
+        'total',
     ];
 }

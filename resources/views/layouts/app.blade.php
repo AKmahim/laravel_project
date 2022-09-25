@@ -8,9 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Title Tag  -->
-    <title>FoodieAshik</title>
+    <title>ঢাকাই বিরিয়ানি </title>
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href=" {{ asset('img/logo-4.png') }} ">
+    <link rel="icon" type="image/png" href=" {{ asset('img/logo4.jpg') }} ">
     <link href=" {{ asset('backend/css/styles.css') }} " rel="stylesheet" />
 
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
@@ -51,7 +51,7 @@
                 <div class="col-lg-2 col-md-2 col-12">
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="{{ url('/') }}"><img  style="max-width: 200px;height:40px;"  src=" {{ asset('img/logo-2.png') }} " alt="FoodieAshik"></a>
+                        <a href="{{ url('/') }}"><img  style="width: 130px;height:100px;margin-left:1rem"  src=" {{ asset('img/logo4.jpg') }} " alt="ঢাকাই বিরিয়ানি"></a>
                     </div>
                     <!--/ End Logo -->
                     
@@ -147,7 +147,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-12">
                         <div class="left">
-                            <p> Copyright © 2022 FoodieAshik All Rights Reserved.</p>
+                            <p> Copyright © 2022 <span style="color:#f2a838;"> ঢাকাই বিরিয়ানি </span>All Rights Reserved.</p>
                         </div>
                     </div>
                     <div class="col-lg-6 col-12">
