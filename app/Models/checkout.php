@@ -4,17 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Products;
+use App\Models\Order;
+// use App\Models\Order;
+
+
 
 class checkout extends Model
 {
-    use HasFactory;
+    
 
     protected $fillable = [
         'customer_name','customer_address','customer_no',
-        'product_name',
-        'product_img',
-        'price',
-        'qty',
-        'total',
+        'user_ip'
     ];
+
+    
+
+    
+    
+
+    use HasFactory;
+    
 }

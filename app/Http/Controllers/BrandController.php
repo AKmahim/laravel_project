@@ -13,6 +13,8 @@ use App\Models\Category;
 use App\Models\Brand;
 use app\Models\User;
 use app\Models\Products;
+use App\Models\Order;
+use DB;
 
 
 
@@ -28,14 +30,27 @@ class BrandController extends Controller
     }
     //
     public function AllBrand(){
-        $orders = checkout::latest()->paginate(10);
-        $carts = Cart::where('user_ip',request()->ip())->latest()->get();
+        $orders = checkout::latest()->paginate(20); 
+        // $carts = Cart::where('user_ip',request()->ip())->latest()->get();
 
-        $total = Cart::all()->where('user_ip',request()->ip())->sum(function($t){
-            return $t->price * $t->qty;
-        });
-
-        return view('admin.order.index',compact('orders','carts','total'));
+        // $total = ::all()->where('user_ip',request()->ip())->sum(function($t){
+        //     return $t->price * $t->qty;
+        // });
+        // $checkouts = checkout::with('order')->get();
+        // $orders = Order::with('checkout')->get();
+        // $users = DB::table('checkouts')
+        //     ->leftJoin('orders', 'checkouts.user_ip', '=', 'orders.user_ip')->get();
+        // $users1 = DB::table('checkouts')
+        //     ->leftJoin('orders', 'checkouts.user_ip', '=', 'orders.user_ip')
+        //     ->get();
+ 
+        // 
+        
+        // $checkouts = checkout::with('order')->get();
+        // $orders = checkout::latest()->get();
+        
+            // $i =1;
+        return view('admin.order.index',compact('orders'));
 
     }
 

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>ঢাকাই বিরিয়ানি Dashboard</title>
+        <title>ঢাকাই বিরিয়ানি Admin Panel</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href=" {{ asset('backend/css/styles.css') }} " rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -19,9 +19,7 @@
         @else 
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href=" {{ url('/admin')}} ">
-                <img src=" {{ asset('img') }}/logo-2.png " class="rounded" style="width:200px" alt="">
-            </a>
+            
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -66,6 +64,9 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
+                                <a class="navbar-brand ps-3" href=" {{ url('/admin')}} ">
+                                    <img src=" {{ asset('img/logo4.jpg') }} "style="width:100px;height:80px;" alt="">
+                                </a>
                             <a class="nav-link" href=" {{ route('home') }} ">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard

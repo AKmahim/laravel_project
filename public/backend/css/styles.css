@@ -3433,7 +3433,9 @@ textarea.form-control-lg {
   color: #dc3545;
   background-color: transparent;
 }
-
+.admin-order-action-list{
+	margin-top: 0.5rem !important;
+}
 .btn-outline-light {
   color: #f8f9fa;
   border-color: #f8f9fa;

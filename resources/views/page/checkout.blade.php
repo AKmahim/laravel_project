@@ -31,19 +31,19 @@
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="form-group">
                                     <label>আপনার নাম<span>*</span></label>
-                                    <input type="text" name="customer_name" class="form-control" id="customerName" placeholder="আপনার নাম লিখুন" required="required">
+                                    <input required type="text" name="customer_name" class="form-control" id="customerName" placeholder="আপনার নাম লিখুন" required="required">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="form-group">
                                     <label>আপনার ঠিকানা<span>*</span></label>
-                                    <input type="text" name="customer_address" class="form-control" id="customerAddress" required="required" placeholder="আপনার ঠিকানা লিখুন">
+                                    <input required type="text" name="customer_address" class="form-control" id="customerAddress" required="required" placeholder="আপনার ঠিকানা লিখুন">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="form-group">
                                     <label>আপনার মোবাইল<span>*</span></label>
-                                    <input type="text" name="customer_no" pattern="[0-9]*" id="customerPhone" class="form-control" placeholder="আপনার মোবাইল লিখুন">
+                                    <input required type="text" name="customer_no" pattern="[0-9]*" id="customerPhone" class="form-control" placeholder="আপনার মোবাইল লিখুন">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
