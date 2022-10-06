@@ -18,13 +18,14 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
                         @foreach($products as $product)
                         
-                        <div class="col-md-4 col-sm-4" >
+                        <div class="col-6 col-sm-6 col-md-4 col-lg-4" >
                            
                           <div class="card h-80" style="max-height:320px;">
                             <img src=" {{ asset($product->product_img) }} " class="rounded img-fluid  " alt="..." style="max-height:150px">
+                            <p> {{ $product->product_name }} </p>
                             <div class="d-inline-block text-dark ps-1" style="font-size:.5rem;font-weight:700">
                               <h5>Price:{{ $product->price }}tk</h5>
-                              <span class="fs-3 text-warning" >Uploaded:</span>
+                              <span class="fs-5 text-warning" >Uploaded:</span>
                               <h5>{{ Carbon\Carbon::parse($product->created_at)->diffForHumans() }}</h5>
 
                             </div>
@@ -49,7 +50,7 @@
         <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
-                     Update Brand
+                     Upload New Product
                     </div>
                         
                     <div class="card-body">
@@ -107,7 +108,7 @@
                                
                                 name="old_price"
                                 placeholder="Enter Product Old Price "
-                                
+                                value="None"
                                 >
 
                                 @error('old_price')

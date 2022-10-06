@@ -11,7 +11,7 @@
          <div class="col-md-8">
                  <div class="card">
                      <div class="card-header">
-                      Update Brand
+                      Update Product Data
                      </div>
                          
                      <div class="card-body">
@@ -26,7 +26,7 @@
                                    aria-describedby="emailHelp"
                                    name="product_name"
                                    placeholder=" {{ $products->product_name }} "
-                                   
+                                   value=" {{ $products->product_name }} "
                                    >
  
                                    @error('product_name')
@@ -56,7 +56,7 @@
                                  
                                  name="price"
                                  placeholder=" {{ $products->price}} "
-                                 
+                                 value=" {{ $products->price }} "
                                  >
  
                                  @error('price')
@@ -71,7 +71,7 @@
                                 
                                  name="old_price"
                                  placeholder=" {{ $products->old_price }} "
-                                 
+                                 value=" {{ $products->old_price }} "
                                  >
  
                                  @error('old_price')

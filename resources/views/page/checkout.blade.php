@@ -48,10 +48,30 @@
                             </div>
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="form-group">
+                                    <label>আপনার ইমেইল<span>*</span></label>
+                                    <input required type="email" name="email" class="form-control" placeholder="আপনার ইমেইল লিখুন">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="form-group">
+                                    <label>Payment Method<span>*</span></label>
+                                    <select class="form-control" id="selectCourier" name="payment_mode">
+                                        <option value="Cash On Delivery">Cash On Delivery</option>
+                                        <option value="Card">Card </option>
+                                        <option value="Bkash">Bkash </option>
+                                        <option value="Rocket">Rocket </option>
+                                        <option value="Nagad">Nagad </option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="form-group">
                                     <label>Shipping Method<span>*</span></label>
                                     <select class="form-control" id="selectCourier">
                                          <option value="80">ঢাকার ভিতর </option>
-                                                <option value="150">ঢাকার বাহির </option>
+                                        <option value="150">ঢাকার বাহির </option>
                                     </select>
                                 </div>
                             </div>

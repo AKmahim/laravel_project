@@ -6,6 +6,10 @@ use App\Models\Cart;
 use App\Models\Products;
 use App\Models\checkout;
 use App\Models\Order;
+use App\Models\Dorder;
+use App\Models\Porder;
+
+
 
 
 use Illuminate\Http\Request;
@@ -22,11 +26,17 @@ class CheckoutController extends Controller
     }
 
     public function AddOrder(Request $request){
-        checkout::insert([
+        $defalt_status = "In Process";
+        Dorder::insert([
             'customer_name' => $request->customer_name,
             'customer_address' => $request->customer_address,
             'customer_no' => $request->customer_no,
+            'payment_mode'=>$request->payment_mode,
+            'email'=>$request->email,
+            'order_status'=>$defalt_status,
             'user_ip' => $request->ip(),
+            'time'=>Carbon::now()->format('d-m-Y h:i A'),
+            'created_at' => Carbon::now()
         ]);
         $carts = Cart::where('user_ip',request()->ip())->latest()->get();
         $total = Cart::all()->where('user_ip',request()->ip())->sum(function($t){
@@ -34,14 +44,15 @@ class CheckoutController extends Controller
         });
         
         foreach ($carts as $cart) {
-            Order::insert([
+            Porder::insert([
                 'user_ip' => $request->ip(),
                 'product_name' => $cart->product->product_name,
                 'product_img' => $cart->product->product_img,
+                'product_id'=>$cart->product_id,
                 'price' => $cart->price,
                 'qty' => $cart->qty,
-                'total' => $total,
-
+                'time' => Carbon::now()->format('d-m-Y h:i A'),
+                'created_at' => Carbon::now()
             ]);
         }
 

@@ -29,7 +29,6 @@ Route::get('/', function () {
 //     return view('about');
 // })->middleware('age');
 
-Route::get('Contact','App\Http\Controllers\ContactController@contact');
 
 Auth::routes(['verify' => true]);
 
@@ -47,16 +46,29 @@ Route::post('Category/Add', 'App\Http\Controllers\CategoryController@AddCat')->n
 
 Route::get('Category/Edit/{id}','App\Http\Controllers\CategoryController@Edit');
 Route::post('Store/Category/{id}','App\Http\Controllers\CategoryController@update');
+
 Route::get('softdelete/category/{id}','App\Http\Controllers\CategoryController@SoftDelete');
 Route::get('Category/Restore/{id}','App\Http\Controllers\CategoryController@Restore');
 Route::get('pdelete/category/{id}','App\Http\Controllers\CategoryController@pdelete');
 
+Route::get('item/{category}','App\Http\Controllers\CategoryView@ViewByItem');
 
 
-/// Brand Page route
+
+
+
+/// order Page route
 
 Route::get('Order/All','App\Http\Controllers\BrandController@AllBrand')->name('all.order');
 // Route::post('Brand/Add','App\Http\Controllers\BrandController@StoreBrand')->name('store.brand');
+Route::get('Order/View/{id}','App\Http\Controllers\BrandController@OrderView');
+Route::get('admin/invoice/{id}','App\Http\Controllers\BrandController@ViewInvoice');
+Route::get('admin/invoice/{id}/generate','App\Http\Controllers\BrandController@GenerateInvoice');
+Route::post('order_status/update/{id}','App\Http\Controllers\BrandController@Update');
+Route::post('payment_mode/update/{id}','App\Http\Controllers\BrandController@PaymentModeUpdate');
+Route::post('order/filter','App\Http\Controllers\BrandController@Filter');
+
+
 
 
 //edit brand page
@@ -102,7 +114,8 @@ Route::get('product/delete/{id}','App\Http\Controllers\ProductController@Delete'
 Route::get('product/{category}/{id}','App\Http\Controllers\CartController@ViewerOrder');
 
 
-
+// user home page search product
+Route::post('/search','App\Http\Controllers\BrandController@SearchProduct');
 
 
 

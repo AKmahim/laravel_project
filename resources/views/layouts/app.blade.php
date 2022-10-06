@@ -42,6 +42,10 @@
        
 
 </head>
+@php
+    $count = App\Models\Cart::all()->where('user_ip',request()->ip())->sum('qty');
+    $categories = App\Models\Category::get();
+@endphp
 <body class="js" style="overflow-x:hidden;">
 <!-- Header -->
 <header class="header shop">
@@ -55,8 +59,47 @@
                     </div>
                     <!--/ End Logo -->
                     
-                    <!--/ Search Form -->
-                    <div class="mobile-nav"></div>
+                    <!-- Search Form -->
+                    <div class="search-top">
+                        <div class="sinlge-bar shopping">
+                            <a href="{{ url('cart') }}" class="single-icon"><i class="ti-bag"></i> <span class="total-count">{{ $count }}</span></a>
+                        </div> 
+                            
+                            <!-- Search Form -->
+                        <div class="search-top">
+                            <form action=" {{ url('/search') }} " method="POST">
+                                <input type="text" placeholder="Search here..." name="q" value="">
+                                <button value="search" type="submit"><i class="ti-search"></i></button>
+                            </form>
+                        </div>
+                            <!--/ End Search Form -->
+                    </div>
+                        <!--/ End Search Form -->
+
+                    <div class="mobile-nav">
+                        <div class="slicknav_menu">
+                            <button onclick="show()" tabindex="0" class="slicknav_btn slicknav_collapsed">
+                                <span class="slicknav_menutext"></span>
+                                <span class="slicknav_icon slicknav_no-text">
+                                    <span class="slicknav_icon-bar"></span>
+                                    <span class="slicknav_icon-bar"></span>
+                                    <span class="slicknav_icon-bar"></span>
+                                </span>
+                            </button>
+
+                            <ul id="NavItem" class="slicknav_nav slicknav_hidden" style="display:none;" aria-hidden="true" role="menu"> 
+                                @foreach ( (App\Models\Category::get()) as $item)
+
+                                    <li>
+                                        <a href=" {{ url('item/' . $item->category_name) }} " role="menuitem" tabindex="-1">
+                                            {{ $item->category_name }}
+                                        </a>
+                                    </li>
+                                    
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
                     
                 </div>
                 <div class="col-lg-9 col-md-7 col-12">
@@ -72,10 +115,7 @@
                 <div class="col-lg-1 col-md-3 col-12">
                     <div class="right-bar">
                         
-                        @php
-                            $count = App\Models\Cart::all()->where('user_ip',request()->ip())->sum('qty');
-                            $categories = App\Models\Category::get();
-                        @endphp
+                        
                           {{-- cart section --}}
                         <div class="sinlge-bar shopping me-3">
                         <a href=" {{ url('cart') }} " class="single-icon pe-3"><i class="ti-bag"></i> <span class="total-count">{{ $count }}</span></a>
@@ -111,7 +151,7 @@
                                         <ul class="nav main-menu menu navbar-nav" >
                                                 @foreach($categories as $category)
                                                 <li>
-                                                    <a href=" ">
+                                                    <a href=" {{ url('item/' . $category->category_name) }} ">
                                                         {{ $category->category_name }}
                                                     </a>
                                                 </li>
@@ -140,7 +180,7 @@
 
 
 <!-- Start Footer Area -->
-<footer class="footer">
+<footer class="footer" >
     <div class="copyright">
         <div class="container">
             <div class="inner">

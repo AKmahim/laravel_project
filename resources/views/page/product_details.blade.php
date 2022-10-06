@@ -45,8 +45,18 @@
     
                          
                         <div style="display: flex">
-                            <a href=" " onclick="buyNow( {{ $product->price }} )" class="add-to-cart btn"> অর্ডার করুন</a>
-                            <a href=" " style="background: #fc5403;color: white !important;" onclick="addToCart( {{ $product->price }} )" class="add-to-cart btn"> Add to cart</a>
+                            <form action=" {{ url('buy/' . $product->id ) }} " method="POST" class=" mb-1 me-4" >
+                                @csrf 
+                                <input type="hidden" name="price" value=" {{ $product->price }} ">
+                                <button type="submit" class="add-to-cart btn btn-block"  onclick="buyNow( {{  $product->price }} )" ><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>অর্ডার করুন</button>
+                            </form>
+                            <form action=" {{ url('add/to-cart/' . $product->id ) }} " method="POST" >
+                                @csrf 
+                                <input type="hidden" name="price" value=" {{ $product->price }} ">
+                            <button type="submit" class="add-to-cart btn btn-block text-center"  onclick="buyNow( {{  $product->price }} )" ><i class="fa fa-shopping-bag" aria-hidden="true"></i> Add to Cart</button>
+                            </form>
+                            {{-- <a href=" {{ url('buy/' . $product->id ) }} " onclick="buyNow( {{ $product->price }} )" class="add-to-cart btn"> অর্ডার করুন</a> --}}
+                            {{-- <a href=" {{ url('add/to-cart/' . $product->id ) }} " style="background: #fc5403;color: white !important;" onclick="addToCart( {{ $product->price }} )" class="add-to-cart btn"> Add to cart</a> --}}
                         </div>
     
                             <a href="tel:01931612302" class="mt-2 btn btn-block btn-primary text-center">

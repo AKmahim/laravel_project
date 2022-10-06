@@ -17,22 +17,24 @@
                                         
                                         
                                          @foreach($products as $product)
-                                        <div class="col-md-2 col-6">
+                                        <div class="col-6 col-sm-4 col-md-3 col-lg-2">
                                                 
                                             <div class="single-product">
                                                 <div class="product-img">
                                                     {{-- set route for cart page --}}
                                                     <a href=" {{ url('product/'. $product->category . '/' . $product->id) }} ">
-                                                    <img class="default-img lazyload rounded img-fluid" style="height:160px;" src=" {{ $product->product_img }} " alt=" {{ $product->product_name }} ">
+                                                    <img class="default-img lazyload rounded img-fluid" style="height:160px;" src=" {{ asset($product->product_img) }} " alt=" {{ $product->product_name }} ">
                                                     </a>
                                                 </div>
-                                                <div class="product-content">
+                                                <div class="product-content mt-1">
                                                     {{-- set route --}}
-                                                    <h3><a href=""> {{ $product->product_name }} </a></h3>
+                                                    <h3 class="pt-1"> {{ $product->product_name }} </h3>
                                                     <div class="product-price-old me-2 pe-2">
-                                                        <del>
-                                                          ৳ {{ $product->old_price }}
-                                                        </del>
+                                                        @if($product->old_price != 'None')
+                                                            <del>
+                                                            ৳ {{ $product->old_price }}
+                                                            </del>
+                                                        @endif
                                                         <span class="product-price ms-2 ps-2">
                                                             <strong>
                                                                 ৳  {{  $product->price }}
@@ -56,7 +58,7 @@
                                             
                                         </div>
                                         @endforeach
-                                        
+                                        {{ $products->links('pagination::bootstrap-5')  }}
                                     </div>
                                                                                
                                 </div>

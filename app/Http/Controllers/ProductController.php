@@ -17,7 +17,7 @@ class ProductController extends Controller
     //product index
     //this is for admin page
     public function index(){
-        $products = Products::latest()->paginate(5);
+        $products = Products::latest()->paginate(10);
 
         $categories = Category::get();
         return view('admin.products.index',compact('products','categories'));

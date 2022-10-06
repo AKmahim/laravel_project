@@ -7,6 +7,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>ঢাকাই বিরিয়ানি Admin Panel</title>
+        <link rel="icon" type="image/png" href=" {{ asset('img/logo4.jpg') }} ">
+
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href=" {{ asset('backend/css/styles.css') }} " rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -37,7 +39,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <a class="dropdown-item" href="{{ route('profile.user') }}">
@@ -102,12 +104,29 @@
 
         @endguest
         @yield('admin_content')
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('backend/js/scripts.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('backend/assets/demo/chart-area-demo.js') }} "></script>
         <script src="{{ asset('backend/assets/demo/chart-bar-demo.js') }} "></script>
+        <script src="{{ asset('fontend') }}/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="{{ asset('backend/js/datatables-simple-demo.js') }} "></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script >
+                $('#exampleModal').modal('hide');
+                $(document).ready(function(){
+                    $('details-btn').click(function(){
+                        const id = $(this).attr('data-id');
+                        console.log(id);
+                    });
+                });
+        </script>
+        
     </body>
 </html>

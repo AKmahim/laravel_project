@@ -90,8 +90,37 @@ class CartController extends Controller
 
     }
 
-    public function cart(Request $request,$id){
-        
+    public function buy(Request $request,$product_id){
+
+
+        $check = Cart::where('product_id',$product_id)->where('user_ip',$request->ip())->first();
+       if($check){
+           Cart::where('product_id',$product_id)->where('user_ip',$request->ip())->increment('qty');
+           $data = Cart::where('user_ip',$request->ip())->get();
+           $sum =0;
+           foreach($data as $i){
+            $sum = $sum + $i->qty;
+           }
+           return Redirect('/cart');
+       }
+       else{
+            Cart::insert([
+                'product_id' => $product_id,
+                'qty' => 1,
+                'price' => $request->price,
+                'user_ip' => request()->ip(),
+            ]);
+
+            $data = Cart::where('user_ip',$request->ip())->get();
+            $sum =0;
+            foreach($data as $i){
+                $sum = $sum + $i->qty;
+            }
+           return Redirect('/cart');
+        }
+
+
+
     }
 
 
